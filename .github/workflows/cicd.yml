@@ -22,10 +22,5 @@ jobs:
           distribution: 'temurin'
       - name: Run the Maven package
         run: |
-         mvn package --file spring-boot-app/pom.xml 
-         mkdir staging && cp target/*.jar staging
-      - uses: actions/upload-artifact@v4
-        with:
-         name: Package
-         path: staging
- 
+         cd spring-boot-app
+         ls -ltra
