@@ -30,4 +30,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: spring-boot-web
-          path: staging/spring-boot-web.jar
+          path: /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app/staging/spring-boot-web.jar
