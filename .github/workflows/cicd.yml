@@ -21,3 +21,11 @@ jobs:
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
+      - name: Setup Java and Maven
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Run the Maven clean
+          run: mvn clean package --file spring-boot-app/pom.xml
