@@ -1,0 +1,17 @@
+#GitHub Action for CICD pipeline
+name: java-maven-sonar-argocd-gh_actions-k8s CICD
+
+on:
+  # Triggers the workflow on push on the "main" branch
+  push:
+    branches: [ "main" ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  Checkout-Build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout and Build
+        uses: actions/checkout@v3
