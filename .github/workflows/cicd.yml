@@ -27,5 +27,5 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Run the Maven clean
-          run: mvn clean package --file spring-boot-app/pom.xml
+      - name: Run the Maven package
+        run: mvn package --file spring-boot-app/pom.xml
