@@ -30,7 +30,7 @@ jobs:
          SONARQUBE_SECRET: ${{ secrets.SONARQUBE_SECRET }}
         run: |
          cd /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app
-         mvn sonar:sonar -Dsonar.login="$SONAR_SECRET" -Dsonar.host.url="$SONAR_HOST"
+         mvn sonar:sonar -Dsonar.login="$SONAR_SECRET" -Dsonar.host.url="http://44.203.88.24:9000"
           
       - uses: actions/upload-artifact@v4
         with:
