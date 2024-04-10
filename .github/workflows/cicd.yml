@@ -25,9 +25,8 @@ jobs:
          mkdir staging
          cp target/*.jar staging
          ls -ltra staging
-        
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+
+      - uses: actions/upload-artifact@v4
         with:
           name: spring-boot-web
           path: staging
