@@ -3,8 +3,6 @@ name: java-maven-sonar-argocd-gh_actions-k8s CICD
 
 on:
   # Triggers the workflow on push on the "main" branch
-  push:
-    branches: [ "dev" ]
   workflow_dispatch:
 jobs:
 
@@ -26,6 +24,7 @@ jobs:
          mvn package --file pom.xml
          mkdir staging
          cp target/*.jar staging
+         ls -ltra staging
         
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
