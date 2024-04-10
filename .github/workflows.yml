@@ -4,14 +4,20 @@ name: java-maven-sonar-argocd-gh_actions-k8s CICD
 on:
   # Triggers the workflow on push on the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ "dev" ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+
   Checkout-Build:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout and Build
         uses: actions/checkout@v3
+
+        # Add support for more platforms with QEMU (optional)
+        # https://github.com/docker/setup-qemu-action
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
