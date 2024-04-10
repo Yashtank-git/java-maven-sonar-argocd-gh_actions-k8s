@@ -26,11 +26,11 @@ jobs:
          cp target/*.jar staging
       - name: Sonarqube scan
         env:
-         SONARQUBE_HOST: ${{ secrets.SONARQUBE_HOST }}
-         SONARQUBE_SECRET: ${{ secrets.SONARQUBE_SECRET }}
+         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
          cd /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app
-         mvn sonar:sonar -Dsonar.token="$SONAR_SECRET" -Dsonar.host.url="http://44.203.88.24:9000"
+         mvn sonar:sonar -Dsonar.token="$SONAR_TOKEN" -Dsonar.host.url="$SONAR_HOST_URL"
           
       - uses: actions/upload-artifact@v4
         with:
