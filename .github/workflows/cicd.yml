@@ -36,3 +36,8 @@ jobs:
         with:
           name: spring-boot-web
           path: /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app/staging/spring-boot-web.jar
+
+      - name: Set Docker Image Tag
+        run: |
+          IMAGE_TAG=$(date +'%y-%m-%d-%s')
+          echo "IMAGE_TAG=$IMAGE_TAG" >> "$GITHUB_ENV"
