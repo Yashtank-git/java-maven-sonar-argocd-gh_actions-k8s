@@ -1,0 +1,17 @@
+
+#GitHub Action for CICD pipeline
+name: java-maven-sonar-argocd-gh_actions-k8s CICD
+
+on:
+  # Triggers the workflow on push on the "main" branch
+  workflow_dispatch:
+jobs:
+
+  Checkout-Build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Set Docker Image Tag
+        run: |
+          IMAGE_TAG=$(date +'%y-%m-%d-%s')
+          echo "IMAGE_TAG=$IMAGE_TAG" >> "$GITHUB_ENV"
