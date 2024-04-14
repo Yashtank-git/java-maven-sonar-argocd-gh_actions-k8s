@@ -41,3 +41,15 @@ jobs:
         run: |
           IMAGE_TAG=$(date +'%y-%m-%d-%s')
           echo "IMAGE_TAG=$IMAGE_TAG" >> "$GITHUB_ENV"
+
+      - name: Upload the Image to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: yashtank1999/java-argo-k8s-
