@@ -48,6 +48,14 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+         name: spring-boot-web
+      - name: list downloaded
+        run: |
+          ls -ltra
+          pwd
       - name: Build and push
         env:
          IMAGE_TAG: ${{ steps.docker-image-tag.outputs.IMAGE_TAG }}
