@@ -52,4 +52,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: yashtank1999/java-argo-k8s-
+          tags: yashtank1999/java-argo-k8s:$IMAGE_TAG
