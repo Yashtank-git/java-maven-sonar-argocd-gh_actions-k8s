@@ -24,13 +24,13 @@ jobs:
          mvn package --file pom.xml
          mkdir staging
          cp target/*.jar staging
-      - name: Sonarqube scan
-        env:
-         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-         cd /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app
-         mvn sonar:sonar -Dsonar.token="$SONAR_TOKEN" -Dsonar.host.url="$SONAR_HOST_URL"
+      # - name: Sonarqube scan
+      #   env:
+      #    SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #   run: |
+      #    cd /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app
+      #    mvn sonar:sonar -Dsonar.token="$SONAR_TOKEN" -Dsonar.host.url="$SONAR_HOST_URL"
           
       - uses: actions/upload-artifact@v4
         with:
