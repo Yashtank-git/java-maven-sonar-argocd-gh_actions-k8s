@@ -34,5 +34,5 @@ jobs:
           cat deployment.yml
           git add deployment.yml
           git commit -m "Update deployment image version"
-          git push https://$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY HEAD:dev
+          git push https://$GIT_TOKEN@github.com/$GITHUB_REPOSITORY HEAD:dev
           
