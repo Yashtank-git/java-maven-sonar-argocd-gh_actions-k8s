@@ -31,4 +31,3 @@ jobs:
           git add deployment.yml
           git commit -m "Update deployment image to version "$IMAGE_TAG"
           
-          echo https://"$GIT_TOKEN"@github.com/"$GITHUB_REPOSITORY" HEAD:dev
