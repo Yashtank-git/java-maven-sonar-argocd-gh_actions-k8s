@@ -66,13 +66,16 @@ jobs:
         working-directory: /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app-manifests
         env:
           IMAGE_TAG: ${{ steps.docker-image-tag.outputs.IMAGE_TAG }}
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
           git config user.email "tankyash180@gmail.com"
           git config user.name "Yash Tank"
           IMAGE_TAG="$IMAGE_TAG"
-          sed -i "s/ultimate-cicd:.*/ultimate-cicd:$IMAGE_TAG/g" deployment.yml
+          sed -i "s/java-argocd-k8s:.*/java-argocd-k8s:$IMAGE_TAG/g" deployment.yml
           git add deployment.yml
           git commit -m "Update deployment image to version "$IMAGE_TAG"
-          git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+          git push https://$GIT_TOKEN@github.com/$GITHUB_REPOSITORY HEAD:dev
+
+
 
         
