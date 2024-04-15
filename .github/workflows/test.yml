@@ -30,7 +30,7 @@ jobs:
           echo $IMAGE_TAG
           git config user.email "tankyash180@gmail.com"
           git config user.name "Yash Tank"
-          sed -i "s/ultimate-cicd:.*/ultimate-cicd:$IMAGE_TAG/g" deployment.yml
+          sed -i "s/java-argocd-k8s:.*/java-argocd-k8s:$IMAGE_TAG/g" deployment.yml
           cat deployment.yml
           git add deployment.yml
           git commit -m "Update deployment image version"
