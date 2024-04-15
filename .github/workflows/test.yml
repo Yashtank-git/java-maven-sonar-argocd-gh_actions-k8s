@@ -25,6 +25,7 @@ jobs:
           GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
           pwd
+          ls
           IMAGE_TAG=$(date +'%y-%m-%d-%s')
           git config user.email "tankyash180@gmail.com"
           git config user.name "Yash Tank"
