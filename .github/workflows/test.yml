@@ -33,6 +33,6 @@ jobs:
           sed -i "s/ultimate-cicd:.*/ultimate-cicd:$IMAGE_TAG/g" deployment.yml
           cat deployment.yml
           git add deployment.yml
-          git commit -m "Update deployment image to version $IMAGE_TAG"
+          git commit -m "Update deployment image version"
           git push https://$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY HEAD:dev
           
