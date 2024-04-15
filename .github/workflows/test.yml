@@ -20,12 +20,14 @@ jobs:
         uses: actions/checkout@v3
       - name: Set Docker Image Tag
         working-directory: /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app-manifests
+        env:
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
           IMAGE_TAG=$(date +'%y-%m-%d-%s')
-          # git config user.email "tankyash180@gmail.com"
-          # git config user.name "Yash Tank"
-          # sed -i "s/ultimate-cicd:.*/ultimate-cicd:$IMAGE_TAG/g" deployment.yml
-          # git add deployment.yml
-          # git commit -m "Update deployment image to version "$IMAGE_TAG"
+          git config user.email "tankyash180@gmail.com"
+          git config user.name "Yash Tank"
+          sed -i "s/ultimate-cicd:.*/ultimate-cicd:$IMAGE_TAG/g" deployment.yml
+          git add deployment.yml
+          git commit -m "Update deployment image to version "$IMAGE_TAG"
           
           echo https://$GIT_TOKEN@github.com/$GITHUB_REPOSITORY HEAD:dev
