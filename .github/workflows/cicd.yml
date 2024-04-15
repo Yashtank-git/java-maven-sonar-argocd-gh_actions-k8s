@@ -61,3 +61,17 @@ jobs:
           context: .
           push: true
           tags: yashtank1999/java-argocd-k8s:${{ env.IMAGE_TAG }}
+          
+      - name: Push Image Tag number to repo
+        env:
+          IMAGE_TAG: ${{ steps.docker-image-tag.outputs.IMAGE_TAG }}
+        run: |
+          git config user.email "tankyash180@gmail.com"
+          git config user.name "Yash Tank"
+          IMAGE_TAG="$IMAGE_TAG"
+          sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+          git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+          git commit -m "Update deployment image to version ${BUILD_NUMBER}"
+          git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+
+        
