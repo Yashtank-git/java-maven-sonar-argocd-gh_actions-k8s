@@ -18,10 +18,12 @@ jobs:
     steps:
       - name: Checkout and Build
         uses: actions/checkout@v3
+      - name: Get Git Token
+        with:
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
       - name: Set Docker Image Tag
         working-directory: /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app-manifests
-        env:
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+        
         run: |
           IMAGE_TAG=$(date +'%y-%m-%d-%s')
           git config user.email "tankyash180@gmail.com"
@@ -30,4 +32,4 @@ jobs:
           git add deployment.yml
           git commit -m "Update deployment image to version "$IMAGE_TAG"
           
-          git push https://$GIT_TOKEN@github.com/$GITHUB_REPOSITORY HEAD:dev
+          echo https://$GIT_TOKEN@github.com/$GITHUB_REPOSITORY HEAD:dev
