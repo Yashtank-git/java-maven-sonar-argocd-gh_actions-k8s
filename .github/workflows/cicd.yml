@@ -73,7 +73,7 @@ jobs:
           IMAGE_TAG="$IMAGE_TAG"
           sed -i "s/java-argocd-k8s:.*/java-argocd-k8s:$IMAGE_TAG/g" deployment.yml
           git add deployment.yml
-          git commit -m "Update deployment image to version "$IMAGE_TAG"
+          git commit -m "Update deployment image to version $IMAGE_TAG"
           git push https://$GIT_TOKEN@github.com/$GITHUB_REPOSITORY HEAD:dev
 
 
