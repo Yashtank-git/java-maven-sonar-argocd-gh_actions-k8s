@@ -11,9 +11,13 @@ jobs:
   Checkout-Build:
     runs-on: ubuntu-latest
     
+
     steps:
+      - name: Checkout and Build
+        uses: actions/checkout@v3
       - name: Set Docker Image Tag
+        working-directory: /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app-manifests
         run: |
           IMAGE_TAG=$(date +'%y-%m-%d-%s')
-          echo "IMAGE_TAG=$IMAGE_TAG" >> "$GITHUB_ENV"
-          cat $GITHUB_ENV
+          sed -i "s/ultimate-cicd:.*/ultimate-cicd:$IMAGE_TAG/g" deployment.yml
+          cat deployment.yml
