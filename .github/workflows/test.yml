@@ -3,6 +3,9 @@
 name: java-maven-sonar-argocd-gh_actions-k8s CICD
 
 on:
+  push:
+    branches:
+      [ dev ]
   
   # Triggers the workflow on push on the "main" branch
   workflow_dispatch:
