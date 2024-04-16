@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: yashtank1999/java-argocd-k8s:24-04-15-1713203916
+        image: yashtank1999/java-argocd-k8s:24-04-16-1713251777
         ports:
         - containerPort: 8080
