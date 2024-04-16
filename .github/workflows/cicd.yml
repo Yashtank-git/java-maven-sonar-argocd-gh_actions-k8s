@@ -2,15 +2,15 @@
 name: java-maven-sonar-argocd-gh_actions-k8s CICD
 
 on:
-  # Triggers the workflow on push on the "main" branch
+  # Triggers the workflow on push on the "dev" branch
   workflow_dispatch:
 jobs:
 
-  Checkout-Build:
+  Checkout-Build-Push:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout and Build
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Setup Java and Maven
@@ -18,13 +18,15 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+          
       - name: Run the Maven package
         run: |
          cd spring-boot-app
          mvn package --file pom.xml
          mkdir staging
          cp target/*.jar staging
-      - name: Sonarqube scan
+         
+      - name: Sonarqube Scan
         env:
          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -32,7 +34,8 @@ jobs:
          cd /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app
          mvn sonar:sonar -Dsonar.token="$SONAR_TOKEN" -Dsonar.host.url="$SONAR_HOST_URL"
           
-      - uses: actions/upload-artifact@v4
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
         with:
           name: spring-boot-web
           path: /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app/staging/spring-boot-web.jar
