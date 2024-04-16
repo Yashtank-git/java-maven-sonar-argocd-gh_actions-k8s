@@ -20,6 +20,6 @@ jobs:
         uses: actions/checkout@v3
     
       - name: Set Docker Image Tag ggggg
-        working-directory: /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app-manifests
+        working-directory: ${{ env.GITHUB_ACTION_PATH }}
         run: |
-          echo $GITHUB_ACTION_PATH
+          pwd
