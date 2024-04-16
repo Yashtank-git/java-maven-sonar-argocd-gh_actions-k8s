@@ -21,18 +21,5 @@ jobs:
     
       - name: Set Docker Image Tag ggggg
         working-directory: /home/runner/work/java-maven-sonar-argocd-gh_actions-k8s/java-maven-sonar-argocd-gh_actions-k8s/spring-boot-app-manifests
-        env:
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
-          pwd
-          ls
-          IMAGE_TAG=$(date +'%y-%m-%d-%s')
-          echo $IMAGE_TAG
-          git config user.email "tankyash180@gmail.com"
-          git config user.name "Yash Tank"
-          sed -i "s/java-argocd-k8s:.*/java-argocd-k8s:$IMAGE_TAG/g" deployment.yml
-          cat deployment.yml
-          git add deployment.yml
-          git commit -m "Update deployment image version"
-          git push https://"$GIT_TOKEN"@github.com/$GITHUB_REPOSITORY HEAD:dev
-          
+          echo $GITHUB_ACTION_PATH
