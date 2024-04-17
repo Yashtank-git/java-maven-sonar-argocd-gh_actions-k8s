@@ -31,7 +31,7 @@ jobs:
          mvn package --file pom.xml
          
       - name: Build and push to docker Hub
-        working-directory: ./spring-boot-app
+        working-directory: ./spring-boot-app/target
         run: |
           pwd
           ls
