@@ -5,7 +5,7 @@ name: java-maven-sonar-argocd-gh_actions-k8s CICD
 on:
   push:
     branches:
-      [ dev ]
+      [ yashtank/dev ]
   
   # Triggers the workflow on push on the "main" branch
   workflow_dispatch:
@@ -19,6 +19,17 @@ jobs:
       - name: Checkout and Build
         uses: actions/checkout@v3
     
-      - name: Set Docker Image Tag ggggg
+      - name: Setup Java and Maven
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          
+      - name: Run the Maven package
+        run: |
+         cd spring-boot-app
+         mvn package --file pom.xml
+      - name: Build and push to docker Hub
         run: |
           pwd
+       
