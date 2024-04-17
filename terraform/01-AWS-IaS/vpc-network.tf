@@ -25,7 +25,7 @@ resource "aws_eip" "app-eip-sonar" {
 }
 
 resource "aws_eip" "app-eip-k8s" {
-  instance = aws_instance.app-k8s-minikube
+  instance = aws_instance.app-k8s-minikube.id
   domain = "vpc"
 }
 

@@ -1,11 +1,11 @@
 variable "shared_config_files" {
   description = "aws configure config file"
-  default = []
+  default = ["C:/Users/yash/.aws/config"]
 }
 
 variable "shared_credentials_files" {
   description = "aws configure creds file"
-  default = []
+  default = ["C:/Users/yash/.aws/credentials"]
 }
 
 output "sonarqube-public-ip" {
