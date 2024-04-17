@@ -30,7 +30,7 @@ jobs:
          cd spring-boot-app
          mvn package --file pom.xml
       - name: Build and push to docker Hub
-        working-directory: ${{ $GITHUB_WORKSPACE }}/spring-boot-app
+        working-directory: $GITHUB_WORKSPACE/spring-boot-app
         run: |
           pwd
           ls
