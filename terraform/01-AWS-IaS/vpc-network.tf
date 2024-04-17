@@ -19,7 +19,13 @@ resource "aws_subnet" "app-subnet-public" {
   }
 }
 
-resource "aws_eip" "app-eip" {
+resource "aws_eip" "app-eip-sonar" {
+  instance = aws_instance.app-sonarqube.id
+  domain = "vpc"
+}
+
+resource "aws_eip" "app-eip-k8s" {
+  instance = aws_instance.app-k8s-minikube
   domain = "vpc"
 }
 
