@@ -1,4 +1,4 @@
-sudo apt update
+sudo apt update -y
 sudo apt install openjdk-17-jre unzip -y
 sudo groupadd sonarqube
 wget "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.4.87374.zip"
