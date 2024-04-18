@@ -2,8 +2,18 @@
 name: java-maven-sonar-argocd-gh_actions-k8s CICD
 
 on:
-  # Triggers the workflow on push on the "dev" branch
+  push:
+    branches:
+      [ main ]
+    paths-ignore:
+      - '.github/workflows/*'
+      - '.gitignore'
+      - 'README.md'
+      - 'terraform/*'
+      - 'LICENSE'
   workflow_dispatch:
+    
+      
 jobs:
 
   Checkout-Build-Push:
