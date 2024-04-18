@@ -1,3 +1,6 @@
+![excali-image](https://github.com/Yashtank-git/java-maven-sonar-argocd-gh_actions-k8s/assets/69433053/d8a66080-3f65-47bf-a4d9-39812cae5cec)
+
+
 # java-maven-sonar-argocd-gh_actions-k8s
 ## Project Description
 GitHub Actions CICD Pipeline Setup for Java based application with different stages using **Terraform, Maven, SonarQube, Argo CD and Kubernetes Deployment**
