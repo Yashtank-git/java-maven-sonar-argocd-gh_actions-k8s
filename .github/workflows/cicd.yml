@@ -33,11 +33,10 @@ jobs:
          mvn sonar:sonar -Dsonar.token="$SONAR_TOKEN" -Dsonar.host.url="$SONAR_HOST_URL"
           
       - name: Upload Build Artifact
-        working-directory: ./spring-boot-app/target
         uses: actions/upload-artifact@v4
         with:
           name: spring-boot-web
-          path: ./
+          path: ./spring-boot-app/target
 
       - name: Set Docker Image Tag
         id: docker-image-tag
