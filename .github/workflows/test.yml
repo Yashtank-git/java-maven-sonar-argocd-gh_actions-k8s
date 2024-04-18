@@ -1,38 +1,11 @@
 
-#GitHub Action for CICD pipeline
-name: java-maven-sonar-argocd-gh_actions-k8s CICD
+name: java-maven-sonar-argocd-gh_actions-k8s Test
 
-on:
-  push:
-    branches:
-      [ yashtank/dev ]
-  
-  # Triggers the workflow on push on the "main" branch
+on: 
   workflow_dispatch:
 jobs:
 
-  Checkout-Build:
+  Test:
     runs-on: ubuntu-latest
-    
-
-    steps:
-      - name: Checkout and Build
-        uses: actions/checkout@v3
-    
-      - name: Setup Java and Maven
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-          
-      - name: Run the Maven package
-        working-directory: ./spring-boot-app
-        run: |
-         mvn package --file pom.xml
-         
-      - name: Build and push to docker Hub
-        working-directory: ./spring-boot-app/target
-        run: |
-          pwd
-          ls
+  
        
