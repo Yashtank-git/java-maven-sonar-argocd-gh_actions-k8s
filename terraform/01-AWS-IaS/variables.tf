@@ -5,7 +5,7 @@ variable "shared_config_files" {
 
 variable "shared_credentials_files" {
   description = "aws configure creds file"
-  default = ["aws credentials file locations"]
+  default = [<aws credentials file locations>]
 }
 
 output "sonarqube-public-ip" {
