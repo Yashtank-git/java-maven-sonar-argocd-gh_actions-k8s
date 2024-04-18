@@ -4,7 +4,7 @@
 
 # java-maven-sonar-argocd-gh_actions-k8s
 ## Project Description
-GitHub Actions CICD Pipeline Setup for Java based application with different stages using **Terraform, Maven, SonarQube, Argo CD and Kubernetes Deployment**
+**GitHub Actions** CICD Pipeline Setup for Java based application with different stages using **Terraform, Maven, SonarQube, Argo CD and Kubernetes Deployment**
 
 Technologies Used:
 - Application                  - **java**
