@@ -36,6 +36,9 @@ terraform.rc
 variables.tf
 .terraform.lock.hcl
 
+#Ignore varible 
+variables.tf
+
 
 ## Java gitignore
 # Compiled class file
