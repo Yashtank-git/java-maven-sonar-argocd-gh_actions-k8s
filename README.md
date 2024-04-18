@@ -1,4 +1,5 @@
-![excali-image](https://github.com/Yashtank-git/java-maven-sonar-argocd-gh_actions-k8s/assets/69433053/d8a66080-3f65-47bf-a4d9-39812cae5cec)
+![excali-image](https://github.com/Yashtank-git/java-maven-sonar-argocd-gh_actions-k8s/assets/69433053/e2f0748a-e969-4b81-9016-552e00961f95)
+
 
 
 # java-maven-sonar-argocd-gh_actions-k8s
