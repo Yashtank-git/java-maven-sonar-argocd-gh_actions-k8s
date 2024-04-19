@@ -4,7 +4,7 @@ name: java-maven-sonar-argocd-gh_actions-k8s CICD
 on:
   push:
     branches:
-      [ yashtank/dev ]
+      [ main ]
     paths-ignore:
       - '.github/workflows/*'
       - '.gitignore'
@@ -36,13 +36,13 @@ jobs:
          ls
          mvn package --file pom.xml
       
-      # - name: Sonarqube Scan
-      #   working-directory: ./spring-boot-app
-      #   env:
-      #    SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #   run: |
-      #    mvn sonar:sonar -Dsonar.token="$SONAR_TOKEN" -Dsonar.host.url="$SONAR_HOST_URL"
+      - name: Sonarqube Scan
+        working-directory: ./spring-boot-app
+        env:
+         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+         mvn sonar:sonar -Dsonar.token="$SONAR_TOKEN" -Dsonar.host.url="$SONAR_HOST_URL"
           
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
@@ -77,8 +77,6 @@ jobs:
           IMAGE_TAG: ${{ steps.docker-image-tag.outputs.IMAGE_TAG }}
           GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
-          pwd
-          ls
           git config user.email "tankyash180@gmail.com"
           git config user.name "Yash Tank"
           IMAGE_TAG="$IMAGE_TAG"
