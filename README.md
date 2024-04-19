@@ -68,12 +68,59 @@ http://<sonarqube-server-ip>:9000
 - Update the user token to **GitHub Actions Secrets** - SONAR_TOKEN
 
 
-### Setting up Sonarqube
+### Setting up k8s-minikube
 - Login to k8s-minikube server via ssh
 - run below command to start minikube and set kubectl as minikube kubectl
 ```bash
 minikube start --driver=docker
 alias kubectl="minikube kubectl --"
 ln -s $(which minikube) /usr/local/bin/kubectl
+```
+- Install ArgoCD Operator as per Instructions - https://operatorhub.io/operator/argocd-operator
+- Get admin password for the cluster secret for loggin in
+```bash
+kubectl -n argocd get secret example-argocd-cluster -o jsonpath='{.data.admin\.password}' | base64 -d
+```
+- Create a basic-argocd.yml file for starting ArgoCD servers
+```bash
+#basic-argocd.yml
+apiVersion: argoproj.io/v1alpha1
+kind: ArgoCD
+metadata:
+  name: example-argocd
+spec: {}
+```
+- Apply the configuration
+```bash
+kubectl apply -f basic-argocd.yml
+```
+- Once all the resouces are up and running, Edit the "example-argocd-server" service to be LoadBalancer Type
+```bash
+kubectl edit svc example-argocd-server
+- change the Type of the Service to "LoadBalancer"
+```
+- Access the ArgoCD UI with the url
+```bash
+https://<k8s-minikube-server-ip>
+```
+### Create a Application with below settings and create
+**General**
+- Application Name  : spring-app-demo
+- Project Name      : default
+- Sync Policy       : Auto
+
+**Source**
+- Repo URL          : https://github.com/Yashtank-git/java-maven-sonar-argocd-gh_actions-k8s.git
+- Revision          : main
+- path              : spring-boot-app-manifests
+
+**Destination**
+- Cluster URL       : Default
+- Namespace         : default
+
+
+Hurray... 🥳 . CICD Pipeline and Application setup is complete and Finally Application can be accessible on
+```bash
+http://<k8s-minikube-server-ip>:8080
 ```
 
