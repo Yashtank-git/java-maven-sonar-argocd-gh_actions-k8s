@@ -75,13 +75,15 @@ jobs:
           IMAGE_TAG: ${{ steps.docker-image-tag.outputs.IMAGE_TAG }}
           GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
+          pwd
+          ls
           git config user.email "tankyash180@gmail.com"
           git config user.name "Yash Tank"
           IMAGE_TAG="$IMAGE_TAG"
           sed -i "s/java-argocd-k8s:.*/java-argocd-k8s:$IMAGE_TAG/g" deployment.yml
           git add deployment.yml
           git commit -m "Update deployment image to version $IMAGE_TAG"
-          git push https://$GIT_TOKEN@github.com/$GITHUB_REPOSITORY HEAD:dev
+          git push https://$GIT_TOKEN@github.com/$GITHUB_REPOSITORY HEAD:yashtank/dev
 
 
 
