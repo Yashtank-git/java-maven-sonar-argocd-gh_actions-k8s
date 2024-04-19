@@ -53,4 +53,15 @@ terraform validate
 terraform plan
 terraform apply
 ```
+## Setting up Minikube and Sonarqube servers
 
+After the Terraform apply, The Public IPs of the servers will be displayed as output as terraform variable.
+
+# Setting up Sonarqube
+
+- Login to Sonarqube Application as
+```bash
+http://<sonarqube-server-ip>:9000
+```
+- Create a Project Named as "spring-boot-app"
+- Change the security setting to allow public
