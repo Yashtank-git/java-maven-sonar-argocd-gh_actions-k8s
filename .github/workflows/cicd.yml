@@ -4,7 +4,7 @@ name: java-maven-sonar-argocd-gh_actions-k8s CICD
 on:
   push:
     branches:
-      [ main ]
+      [ yashtank/dev ]
     paths-ignore:
       - '.github/workflows/*'
       - '.gitignore'
