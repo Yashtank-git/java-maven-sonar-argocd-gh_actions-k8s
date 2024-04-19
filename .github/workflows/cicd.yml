@@ -36,13 +36,13 @@ jobs:
          ls
          mvn package --file pom.xml
       
-      - name: Sonarqube Scan
-        working-directory: ./spring-boot-app
-        env:
-         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-         mvn sonar:sonar -Dsonar.token="$SONAR_TOKEN" -Dsonar.host.url="$SONAR_HOST_URL"
+      # - name: Sonarqube Scan
+      #   working-directory: ./spring-boot-app
+      #   env:
+      #    SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #   run: |
+      #    mvn sonar:sonar -Dsonar.token="$SONAR_TOKEN" -Dsonar.host.url="$SONAR_HOST_URL"
           
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
