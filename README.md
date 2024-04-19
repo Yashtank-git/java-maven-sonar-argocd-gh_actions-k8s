@@ -1,7 +1,6 @@
 ![excali-image](https://github.com/Yashtank-git/java-maven-sonar-argocd-gh_actions-k8s/assets/69433053/e2f0748a-e969-4b81-9016-552e00961f95)
 
 
-
 # java-maven-sonar-argocd-gh_actions-k8s
 ## Project Description
 **GitHub Actions** CICD Pipeline Setup for Java based application with different stages using **Terraform, Maven, SonarQube, Argo CD and Kubernetes Deployment**
@@ -57,11 +56,24 @@ terraform apply
 
 After the Terraform apply, The Public IPs of the servers will be displayed as output as terraform variable.
 
-# Setting up Sonarqube
+### Setting up Sonarqube
 
-- Login to Sonarqube Application as
+- Login to Sonarqube Application with URL
 ```bash
 http://<sonarqube-server-ip>:9000
 ```
-- Create a Project Named as "spring-boot-app"
-- Change the security setting to allow public
+- Login with admin credentials
+- Create a security token of Type "User Token"
+- Update the SonarQube URL to **GitHub Actions Secrets** - SONAR_HOST_URL
+- Update the user token to **GitHub Actions Secrets** - SONAR_TOKEN
+
+
+### Setting up Sonarqube
+- Login to k8s-minikube server via ssh
+- run below command to start minikube and set kubectl as minikube kubectl
+```bash
+minikube start --driver=docker
+alias kubectl="minikube kubectl --"
+ln -s $(which minikube) /usr/local/bin/kubectl
+```
+
