@@ -11,5 +11,6 @@ sudo curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-l
 sudo usermod -aG docker $USER && newgrp docker
 
 sudo chown -R ubuntu:docker minikube-linux-amd64
+sudo chmod -R 0777 minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube -g docker -o ubuntu
 
