@@ -48,11 +48,11 @@ To get this repository, run the following command inside your git enabled termin
 ```bash
 $ git clone https://github.com/Yashtank-git/java-maven-sonar-argocd-gh_actions-k8s.git
 ```
-Update the aws config directory file path to **terraform/01-AWS-IaS/variables.tf** variable file
+Update the aws config directory file path to **terraform/01-AWS-IaC/variables.tf** variable file
 
 ## Running IoC Commands
 
-change directory to **terraform/01-AWS-IaS** and run below commands in shell
+change directory to **terraform/01-AWS-IaC** and run below commands in shell
 
 ```bash
 terraform init
