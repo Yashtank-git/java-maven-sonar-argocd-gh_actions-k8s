@@ -22,8 +22,8 @@ Technologies Used:
 - **DOCKERHUB_TOKEN**      : Create and update DockerHub profile token to push Image
 - **DOCKERHUB_USERNAME**   : DockerHub Username
 - **GIT_TOKEN**            : GitHub token to push change to Repo
-- **SONAR_HOST_URL**       : SonarQube Server Host URL [🔗](https://github.com/Yashtank-git/java-maven-sonar-argocd-gh_actions-k8s/yashtank/dev/README.md#setting-up-sonarqube) 
-- **SONAR_TOKEN**          : SonarQube User Security Token to Sonar Scan [🔗](https://github.com/Yashtank-git/java-maven-sonar-argocd-gh_actions-k8s/yashtank/dev/README.md#setting-up-sonarqube) 
+- **SONAR_HOST_URL**       : SonarQube Server Host URL [🔗](https://github.com/Yashtank-git/java-maven-sonar-argocd-gh_actions-k8s/yashtank/main/README.md#setting-up-sonarqube) 
+- **SONAR_TOKEN**          : SonarQube User Security Token to Sonar Scan [🔗](https://github.com/Yashtank-git/java-maven-sonar-argocd-gh_actions-k8s/yashtank/main/README.md#setting-up-sonarqube) 
 
 Download AWS CLI as per Appropriate OS: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 Download Terraform as per Appropriate OS: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
