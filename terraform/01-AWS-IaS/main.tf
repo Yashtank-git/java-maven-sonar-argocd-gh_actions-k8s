@@ -1,5 +1,6 @@
 resource "aws_instance" "app-sonarqube" {
   subnet_id = aws_subnet.app-subnet-public.id
+  security_groups=[aws_security_group.app-sg.id]
   depends_on = [ aws_security_group.app-sg ]
   associate_public_ip_address = true
   ami           = "ami-053b0d53c279acc90" #Ubuntu 22.04
@@ -14,6 +15,7 @@ resource "aws_instance" "app-sonarqube" {
 
 resource "aws_instance" "app-k8s-minikube" {
   subnet_id = aws_subnet.app-subnet-public.id
+  security_groups=[aws_security_group.app-sg.id]
   depends_on = [ aws_security_group.app-sg ]
   associate_public_ip_address = true
 
