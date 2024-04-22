@@ -13,6 +13,8 @@ on:
       - 'README.md'
       - 'terraform/*'
       - 'LICENSE'
+      - 'spring-boot-app-manifests'
+      - 'spring-boot-app-manifests/*'
   workflow_dispatch:
     
       
