@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt update -y
 
 #Installing docker as driver for minkube
